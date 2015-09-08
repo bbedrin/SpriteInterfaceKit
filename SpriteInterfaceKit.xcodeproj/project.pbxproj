@@ -8,12 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		B498F5E41B9D1C2600FA7201 /* SpriteInterfaceKit.h in Headers */ = {isa = PBXBuildFile; fileRef = B498F5E31B9D1C2600FA7201 /* SpriteInterfaceKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B498F5F11B9E64ED00FA7201 /* SIControl.h in Headers */ = {isa = PBXBuildFile; fileRef = B498F5EF1B9E64ED00FA7201 /* SIControl.h */; settings = {ASSET_TAGS = (); }; };
+		B498F5F21B9E64ED00FA7201 /* SIControl.m in Sources */ = {isa = PBXBuildFile; fileRef = B498F5F01B9E64ED00FA7201 /* SIControl.m */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		B498F5E01B9D1C2600FA7201 /* SpriteInterfaceKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SpriteInterfaceKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B498F5E31B9D1C2600FA7201 /* SpriteInterfaceKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SpriteInterfaceKit.h; sourceTree = "<group>"; };
 		B498F5E51B9D1C2600FA7201 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B498F5EF1B9E64ED00FA7201 /* SIControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SIControl.h; path = ../Code/SIControl.h; sourceTree = "<group>"; };
+		B498F5F01B9E64ED00FA7201 /* SIControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SIControl.m; path = ../Code/SIControl.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +51,8 @@
 			isa = PBXGroup;
 			children = (
 				B498F5E31B9D1C2600FA7201 /* SpriteInterfaceKit.h */,
+				B498F5EF1B9E64ED00FA7201 /* SIControl.h */,
+				B498F5F01B9E64ED00FA7201 /* SIControl.m */,
 				B498F5E51B9D1C2600FA7201 /* Info.plist */,
 			);
 			path = SpriteInterfaceKit;
@@ -59,6 +65,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B498F5F11B9E64ED00FA7201 /* SIControl.h in Headers */,
 				B498F5E41B9D1C2600FA7201 /* SpriteInterfaceKit.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -130,6 +137,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B498F5F21B9E64ED00FA7201 /* SIControl.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
