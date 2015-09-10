@@ -10,6 +10,8 @@
 		B498F5E41B9D1C2600FA7201 /* SpriteInterfaceKit.h in Headers */ = {isa = PBXBuildFile; fileRef = B498F5E31B9D1C2600FA7201 /* SpriteInterfaceKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B498F6311B9EF9A400FA7201 /* SIControl.m in Sources */ = {isa = PBXBuildFile; fileRef = B498F62F1B9EF9A400FA7201 /* SIControl.m */; settings = {ASSET_TAGS = (); }; };
 		B498F6321B9EF9A400FA7201 /* SIControl.h in Headers */ = {isa = PBXBuildFile; fileRef = B498F6301B9EF9A400FA7201 /* SIControl.h */; settings = {ASSET_TAGS = (); }; };
+		B498F6351B9EF9D100FA7201 /* SIButton.h in Headers */ = {isa = PBXBuildFile; fileRef = B498F6331B9EF9D100FA7201 /* SIButton.h */; settings = {ASSET_TAGS = (); }; };
+		B498F6361B9EF9D100FA7201 /* SIButton.m in Sources */ = {isa = PBXBuildFile; fileRef = B498F6341B9EF9D100FA7201 /* SIButton.m */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -18,6 +20,8 @@
 		B498F5E51B9D1C2600FA7201 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B498F62F1B9EF9A400FA7201 /* SIControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SIControl.m; path = Code/SIControl.m; sourceTree = "<group>"; };
 		B498F6301B9EF9A400FA7201 /* SIControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SIControl.h; path = Code/SIControl.h; sourceTree = "<group>"; };
+		B498F6331B9EF9D100FA7201 /* SIButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SIButton.h; path = Code/SIButton.h; sourceTree = "<group>"; };
+		B498F6341B9EF9D100FA7201 /* SIButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SIButton.m; path = Code/SIButton.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +57,8 @@
 				B498F5E31B9D1C2600FA7201 /* SpriteInterfaceKit.h */,
 				B498F6301B9EF9A400FA7201 /* SIControl.h */,
 				B498F62F1B9EF9A400FA7201 /* SIControl.m */,
+				B498F6331B9EF9D100FA7201 /* SIButton.h */,
+				B498F6341B9EF9D100FA7201 /* SIButton.m */,
 				B498F5E51B9D1C2600FA7201 /* Info.plist */,
 			);
 			path = SpriteInterfaceKit;
@@ -65,6 +71,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B498F6351B9EF9D100FA7201 /* SIButton.h in Headers */,
 				B498F6321B9EF9A400FA7201 /* SIControl.h in Headers */,
 				B498F5E41B9D1C2600FA7201 /* SpriteInterfaceKit.h in Headers */,
 			);
@@ -138,6 +145,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B498F6311B9EF9A400FA7201 /* SIControl.m in Sources */,
+				B498F6361B9EF9D100FA7201 /* SIButton.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
