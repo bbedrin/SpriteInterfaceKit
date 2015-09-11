@@ -103,6 +103,7 @@
 		B4FEA4EF1BA2649B0094355B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B4FEA4F11BA2649B0094355B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Main.storyboard; sourceTree = "<group>"; };
 		B4FEA4F21BA2649B0094355B /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; name = GameScene.sks; path = "SpriteInterfaceDemo-Shared/GameScene.sks"; sourceTree = "<group>"; };
+		B4FEA4FB1BA270B00094355B /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +136,7 @@
 		B498F5D61B9D1C2600FA7201 = {
 			isa = PBXGroup;
 			children = (
+				B4FEA4FB1BA270B00094355B /* README.md */,
 				B498F5E21B9D1C2600FA7201 /* SpriteInterfaceKit */,
 				B4FEA4EA1BA263E00094355B /* Demo */,
 				B498F5E11B9D1C2600FA7201 /* Products */,
