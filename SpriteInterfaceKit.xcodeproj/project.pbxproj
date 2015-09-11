@@ -12,69 +12,7 @@
 		B498F6321B9EF9A400FA7201 /* SIControl.h in Headers */ = {isa = PBXBuildFile; fileRef = B498F6301B9EF9A400FA7201 /* SIControl.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B498F6351B9EF9D100FA7201 /* SIButton.h in Headers */ = {isa = PBXBuildFile; fileRef = B498F6331B9EF9D100FA7201 /* SIButton.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B498F6361B9EF9D100FA7201 /* SIButton.m in Sources */ = {isa = PBXBuildFile; fileRef = B498F6341B9EF9D100FA7201 /* SIButton.m */; settings = {ASSET_TAGS = (); }; };
-		B4E49F2F1BA1A3FE00292568 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B4E49F2E1BA1A3FE00292568 /* main.m */; };
-		B4E49F321BA1A3FE00292568 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B4E49F311BA1A3FE00292568 /* AppDelegate.m */; };
-		B4E49F351BA1A3FE00292568 /* GameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = B4E49F341BA1A3FE00292568 /* GameScene.m */; };
-		B4E49F3A1BA1A3FE00292568 /* GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B4E49F391BA1A3FE00292568 /* GameViewController.m */; };
-		B4E49F481BA1A41000292568 /* SpriteInterfaceKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B498F5E01B9D1C2600FA7201 /* SpriteInterfaceKit.framework */; };
-		B4E49F491BA1A41000292568 /* SpriteInterfaceKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B498F5E01B9D1C2600FA7201 /* SpriteInterfaceKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		B4FEA4CA1BA260050094355B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4FEA4C91BA260050094355B /* AppDelegate.swift */; };
-		B4FEA4CE1BA260050094355B /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4FEA4CD1BA260050094355B /* GameScene.swift */; };
-		B4FEA4D01BA260050094355B /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4FEA4CF1BA260050094355B /* GameViewController.swift */; };
-		B4FEA4E01BA260770094355B /* SpriteInterfaceKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B498F5E01B9D1C2600FA7201 /* SpriteInterfaceKit.framework */; };
-		B4FEA4E11BA260770094355B /* SpriteInterfaceKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B498F5E01B9D1C2600FA7201 /* SpriteInterfaceKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		B4FEA4E91BA261EF0094355B /* SpriteInterfaceDemo-Swift-iOS-Bridging-Header.h in Headers */ = {isa = PBXBuildFile; fileRef = B4FEA4E51BA261C40094355B /* SpriteInterfaceDemo-Swift-iOS-Bridging-Header.h */; settings = {ASSET_TAGS = (); }; };
-		B4FEA4F31BA2649B0094355B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B4FEA4EC1BA2649B0094355B /* Assets.xcassets */; settings = {ASSET_TAGS = (); }; };
-		B4FEA4F41BA2649B0094355B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B4FEA4EC1BA2649B0094355B /* Assets.xcassets */; settings = {ASSET_TAGS = (); }; };
-		B4FEA4F51BA2649B0094355B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B4FEA4EE1BA2649B0094355B /* LaunchScreen.storyboard */; settings = {ASSET_TAGS = (); }; };
-		B4FEA4F61BA2649B0094355B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B4FEA4EE1BA2649B0094355B /* LaunchScreen.storyboard */; settings = {ASSET_TAGS = (); }; };
-		B4FEA4F71BA2649B0094355B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B4FEA4F01BA2649B0094355B /* Main.storyboard */; settings = {ASSET_TAGS = (); }; };
-		B4FEA4F81BA2649B0094355B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B4FEA4F01BA2649B0094355B /* Main.storyboard */; settings = {ASSET_TAGS = (); }; };
-		B4FEA4F91BA2649B0094355B /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = B4FEA4F21BA2649B0094355B /* GameScene.sks */; settings = {ASSET_TAGS = (); }; };
-		B4FEA4FA1BA2649B0094355B /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = B4FEA4F21BA2649B0094355B /* GameScene.sks */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		B4E49F4A1BA1A41000292568 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = B498F5D71B9D1C2600FA7201 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = B498F5DF1B9D1C2600FA7201;
-			remoteInfo = SpriteInterfaceKit;
-		};
-		B4FEA4E21BA260770094355B /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = B498F5D71B9D1C2600FA7201 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = B498F5DF1B9D1C2600FA7201;
-			remoteInfo = SpriteInterfaceKit;
-		};
-/* End PBXContainerItemProxy section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		B4E49F4C1BA1A41000292568 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				B4E49F491BA1A41000292568 /* SpriteInterfaceKit.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		B4FEA4E41BA260770094355B /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				B4FEA4E11BA260770094355B /* SpriteInterfaceKit.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		B498F5E01B9D1C2600FA7201 /* SpriteInterfaceKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SpriteInterfaceKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -84,25 +22,6 @@
 		B498F6301B9EF9A400FA7201 /* SIControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SIControl.h; path = Code/SIControl.h; sourceTree = "<group>"; };
 		B498F6331B9EF9D100FA7201 /* SIButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SIButton.h; path = Code/SIButton.h; sourceTree = "<group>"; };
 		B498F6341B9EF9D100FA7201 /* SIButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SIButton.m; path = Code/SIButton.m; sourceTree = "<group>"; };
-		B4E49F2B1BA1A3FE00292568 /* SpriteInterfaceDemo-ObjC-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SpriteInterfaceDemo-ObjC-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		B4E49F2E1BA1A3FE00292568 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		B4E49F301BA1A3FE00292568 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		B4E49F311BA1A3FE00292568 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		B4E49F331BA1A3FE00292568 /* GameScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameScene.h; sourceTree = "<group>"; };
-		B4E49F341BA1A3FE00292568 /* GameScene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GameScene.m; sourceTree = "<group>"; };
-		B4E49F381BA1A3FE00292568 /* GameViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameViewController.h; sourceTree = "<group>"; };
-		B4E49F391BA1A3FE00292568 /* GameViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GameViewController.m; sourceTree = "<group>"; };
-		B4E49F431BA1A3FE00292568 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B4FEA4C71BA260050094355B /* SpriteInterfaceDemo-Swift-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SpriteInterfaceDemo-Swift-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		B4FEA4C91BA260050094355B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		B4FEA4CD1BA260050094355B /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
-		B4FEA4CF1BA260050094355B /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
-		B4FEA4D91BA260050094355B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B4FEA4E51BA261C40094355B /* SpriteInterfaceDemo-Swift-iOS-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SpriteInterfaceDemo-Swift-iOS-Bridging-Header.h"; sourceTree = "<group>"; };
-		B4FEA4EC1BA2649B0094355B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = "SpriteInterfaceDemo-Shared/Assets.xcassets"; sourceTree = "<group>"; };
-		B4FEA4EF1BA2649B0094355B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
-		B4FEA4F11BA2649B0094355B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Main.storyboard; sourceTree = "<group>"; };
-		B4FEA4F21BA2649B0094355B /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; name = GameScene.sks; path = "SpriteInterfaceDemo-Shared/GameScene.sks"; sourceTree = "<group>"; };
 		B4FEA4FB1BA270B00094355B /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -114,22 +33,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		B4E49F281BA1A3FE00292568 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				B4E49F481BA1A41000292568 /* SpriteInterfaceKit.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		B4FEA4C41BA260050094355B /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				B4FEA4E01BA260770094355B /* SpriteInterfaceKit.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -138,7 +41,6 @@
 			children = (
 				B4FEA4FB1BA270B00094355B /* README.md */,
 				B498F5E21B9D1C2600FA7201 /* SpriteInterfaceKit */,
-				B4FEA4EA1BA263E00094355B /* Demo */,
 				B498F5E11B9D1C2600FA7201 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -147,8 +49,6 @@
 			isa = PBXGroup;
 			children = (
 				B498F5E01B9D1C2600FA7201 /* SpriteInterfaceKit.framework */,
-				B4E49F2B1BA1A3FE00292568 /* SpriteInterfaceDemo-ObjC-iOS.app */,
-				B4FEA4C71BA260050094355B /* SpriteInterfaceDemo-Swift-iOS.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -166,71 +66,6 @@
 			path = SpriteInterfaceKit;
 			sourceTree = "<group>";
 		};
-		B4E49F2C1BA1A3FE00292568 /* SpriteInterfaceDemo-ObjC-iOS */ = {
-			isa = PBXGroup;
-			children = (
-				B4E49F301BA1A3FE00292568 /* AppDelegate.h */,
-				B4E49F311BA1A3FE00292568 /* AppDelegate.m */,
-				B4E49F331BA1A3FE00292568 /* GameScene.h */,
-				B4E49F341BA1A3FE00292568 /* GameScene.m */,
-				B4E49F381BA1A3FE00292568 /* GameViewController.h */,
-				B4E49F391BA1A3FE00292568 /* GameViewController.m */,
-				B4E49F431BA1A3FE00292568 /* Info.plist */,
-				B4E49F2D1BA1A3FE00292568 /* Supporting Files */,
-			);
-			path = "SpriteInterfaceDemo-ObjC-iOS";
-			sourceTree = "<group>";
-		};
-		B4E49F2D1BA1A3FE00292568 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				B4E49F2E1BA1A3FE00292568 /* main.m */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		B4FEA4C81BA260050094355B /* SpriteInterfaceDemo-Swift-iOS */ = {
-			isa = PBXGroup;
-			children = (
-				B4FEA4C91BA260050094355B /* AppDelegate.swift */,
-				B4FEA4CD1BA260050094355B /* GameScene.swift */,
-				B4FEA4CF1BA260050094355B /* GameViewController.swift */,
-				B4FEA4D91BA260050094355B /* Info.plist */,
-				B4FEA4E51BA261C40094355B /* SpriteInterfaceDemo-Swift-iOS-Bridging-Header.h */,
-			);
-			path = "SpriteInterfaceDemo-Swift-iOS";
-			sourceTree = "<group>";
-		};
-		B4FEA4EA1BA263E00094355B /* Demo */ = {
-			isa = PBXGroup;
-			children = (
-				B4FEA4EB1BA263E90094355B /* Shared */,
-				B4E49F2C1BA1A3FE00292568 /* SpriteInterfaceDemo-ObjC-iOS */,
-				B4FEA4C81BA260050094355B /* SpriteInterfaceDemo-Swift-iOS */,
-			);
-			name = Demo;
-			sourceTree = "<group>";
-		};
-		B4FEA4EB1BA263E90094355B /* Shared */ = {
-			isa = PBXGroup;
-			children = (
-				B4FEA4EC1BA2649B0094355B /* Assets.xcassets */,
-				B4FEA4ED1BA2649B0094355B /* Base.lproj */,
-				B4FEA4F21BA2649B0094355B /* GameScene.sks */,
-			);
-			name = Shared;
-			sourceTree = "<group>";
-		};
-		B4FEA4ED1BA2649B0094355B /* Base.lproj */ = {
-			isa = PBXGroup;
-			children = (
-				B4FEA4EE1BA2649B0094355B /* LaunchScreen.storyboard */,
-				B4FEA4F01BA2649B0094355B /* Main.storyboard */,
-			);
-			name = Base.lproj;
-			path = "SpriteInterfaceDemo-Shared/Base.lproj";
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -239,7 +74,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				B498F6321B9EF9A400FA7201 /* SIControl.h in Headers */,
-				B4FEA4E91BA261EF0094355B /* SpriteInterfaceDemo-Swift-iOS-Bridging-Header.h in Headers */,
 				B498F6351B9EF9D100FA7201 /* SIButton.h in Headers */,
 				B498F5E41B9D1C2600FA7201 /* SpriteInterfaceKit.h in Headers */,
 			);
@@ -266,44 +100,6 @@
 			productReference = B498F5E01B9D1C2600FA7201 /* SpriteInterfaceKit.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		B4E49F2A1BA1A3FE00292568 /* SpriteInterfaceDemo-ObjC-iOS */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = B4E49F461BA1A3FE00292568 /* Build configuration list for PBXNativeTarget "SpriteInterfaceDemo-ObjC-iOS" */;
-			buildPhases = (
-				B4E49F271BA1A3FE00292568 /* Sources */,
-				B4E49F281BA1A3FE00292568 /* Frameworks */,
-				B4E49F291BA1A3FE00292568 /* Resources */,
-				B4E49F4C1BA1A41000292568 /* Embed Frameworks */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				B4E49F4B1BA1A41000292568 /* PBXTargetDependency */,
-			);
-			name = "SpriteInterfaceDemo-ObjC-iOS";
-			productName = "SpriteInterfaceDemo-ObjC-iOS";
-			productReference = B4E49F2B1BA1A3FE00292568 /* SpriteInterfaceDemo-ObjC-iOS.app */;
-			productType = "com.apple.product-type.application";
-		};
-		B4FEA4C61BA260050094355B /* SpriteInterfaceDemo-Swift-iOS */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = B4FEA4DC1BA260050094355B /* Build configuration list for PBXNativeTarget "SpriteInterfaceDemo-Swift-iOS" */;
-			buildPhases = (
-				B4FEA4C31BA260050094355B /* Sources */,
-				B4FEA4C41BA260050094355B /* Frameworks */,
-				B4FEA4C51BA260050094355B /* Resources */,
-				B4FEA4E41BA260770094355B /* Embed Frameworks */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				B4FEA4E31BA260770094355B /* PBXTargetDependency */,
-			);
-			name = "SpriteInterfaceDemo-Swift-iOS";
-			productName = "SpriteInterfaceDemo-Swift-iOS";
-			productReference = B4FEA4C71BA260050094355B /* SpriteInterfaceDemo-Swift-iOS.app */;
-			productType = "com.apple.product-type.application";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -315,12 +111,6 @@
 				ORGANIZATIONNAME = "Brett Bedrin";
 				TargetAttributes = {
 					B498F5DF1B9D1C2600FA7201 = {
-						CreatedOnToolsVersion = 7.0;
-					};
-					B4E49F2A1BA1A3FE00292568 = {
-						CreatedOnToolsVersion = 7.0;
-					};
-					B4FEA4C61BA260050094355B = {
 						CreatedOnToolsVersion = 7.0;
 					};
 				};
@@ -339,8 +129,6 @@
 			projectRoot = "";
 			targets = (
 				B498F5DF1B9D1C2600FA7201 /* SpriteInterfaceKit */,
-				B4E49F2A1BA1A3FE00292568 /* SpriteInterfaceDemo-ObjC-iOS */,
-				B4FEA4C61BA260050094355B /* SpriteInterfaceDemo-Swift-iOS */,
 			);
 		};
 /* End PBXProject section */
@@ -350,28 +138,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		B4E49F291BA1A3FE00292568 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				B4FEA4F91BA2649B0094355B /* GameScene.sks in Resources */,
-				B4FEA4F71BA2649B0094355B /* Main.storyboard in Resources */,
-				B4FEA4F31BA2649B0094355B /* Assets.xcassets in Resources */,
-				B4FEA4F51BA2649B0094355B /* LaunchScreen.storyboard in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		B4FEA4C51BA260050094355B /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				B4FEA4F61BA2649B0094355B /* LaunchScreen.storyboard in Resources */,
-				B4FEA4FA1BA2649B0094355B /* GameScene.sks in Resources */,
-				B4FEA4F41BA2649B0094355B /* Assets.xcassets in Resources */,
-				B4FEA4F81BA2649B0094355B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -387,60 +153,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		B4E49F271BA1A3FE00292568 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				B4E49F3A1BA1A3FE00292568 /* GameViewController.m in Sources */,
-				B4E49F321BA1A3FE00292568 /* AppDelegate.m in Sources */,
-				B4E49F351BA1A3FE00292568 /* GameScene.m in Sources */,
-				B4E49F2F1BA1A3FE00292568 /* main.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		B4FEA4C31BA260050094355B /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				B4FEA4CE1BA260050094355B /* GameScene.swift in Sources */,
-				B4FEA4D01BA260050094355B /* GameViewController.swift in Sources */,
-				B4FEA4CA1BA260050094355B /* AppDelegate.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		B4E49F4B1BA1A41000292568 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = B498F5DF1B9D1C2600FA7201 /* SpriteInterfaceKit */;
-			targetProxy = B4E49F4A1BA1A41000292568 /* PBXContainerItemProxy */;
-		};
-		B4FEA4E31BA260770094355B /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = B498F5DF1B9D1C2600FA7201 /* SpriteInterfaceKit */;
-			targetProxy = B4FEA4E21BA260770094355B /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		B4FEA4EE1BA2649B0094355B /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				B4FEA4EF1BA2649B0094355B /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-		B4FEA4F01BA2649B0094355B /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				B4FEA4F11BA2649B0094355B /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		B498F5E61B9D1C2600FA7201 /* Debug */ = {
@@ -563,57 +276,6 @@
 			};
 			name = Release;
 		};
-		B4E49F441BA1A3FE00292568 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				INFOPLIST_FILE = "SpriteInterfaceDemo-ObjC-iOS/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.bedrinapps.SpriteInterfaceDemo-ObjC-iOS";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Debug;
-		};
-		B4E49F451BA1A3FE00292568 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = "SpriteInterfaceDemo-ObjC-iOS/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.bedrinapps.SpriteInterfaceDemo-ObjC-iOS";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Release;
-		};
-		B4FEA4DA1BA260050094355B /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CLANG_ENABLE_MODULES = YES;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				INFOPLIST_FILE = "SpriteInterfaceDemo-Swift-iOS/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.bedrinapps.SpriteInterfaceDemo-Swift-iOS";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "SpriteInterfaceDemo-Swift-iOS/SpriteInterfaceDemo-Swift-iOS-Bridging-Header.h";
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-			};
-			name = Debug;
-		};
-		B4FEA4DB1BA260050094355B /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CLANG_ENABLE_MODULES = YES;
-				INFOPLIST_FILE = "SpriteInterfaceDemo-Swift-iOS/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.bedrinapps.SpriteInterfaceDemo-Swift-iOS";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "SpriteInterfaceDemo-Swift-iOS/SpriteInterfaceDemo-Swift-iOS-Bridging-Header.h";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -634,23 +296,6 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
-		};
-		B4E49F461BA1A3FE00292568 /* Build configuration list for PBXNativeTarget "SpriteInterfaceDemo-ObjC-iOS" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				B4E49F441BA1A3FE00292568 /* Debug */,
-				B4E49F451BA1A3FE00292568 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		B4FEA4DC1BA260050094355B /* Build configuration list for PBXNativeTarget "SpriteInterfaceDemo-Swift-iOS" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				B4FEA4DA1BA260050094355B /* Debug */,
-				B4FEA4DB1BA260050094355B /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};
