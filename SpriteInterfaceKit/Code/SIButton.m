@@ -34,7 +34,10 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
-        
+        self.userInteractionEnabled = true;
+        _currentTitleColor = [SKColor whiteColor];
+        _titleLabelOffset = CGPointZero;
+        _titleShadowOffset = CGPointMake(2, -2);
     }
     
     return self;
@@ -76,25 +79,26 @@
     }
 }
 
-- (void)setCurrentTitleColor:(UIColor *)currentTitleColor {
+
+- (void)setCurrentTitleColor:(SKColor *)currentTitleColor {
     if (_currentTitleColor != currentTitleColor) {
         _currentTitleColor = currentTitleColor;
         if (_titleLabel) {
-            _titleLabel.fontColor = currentTitleColor;
+            _titleLabel.fontColor = currentTitleColor ? currentTitleColor : [SKColor clearColor];           
         }
     }
 }
 
-- (void)setCurrentTitleShadowColor:(UIColor *)currentTitleShadowColor {
+- (void)setCurrentTitleShadowColor:(SKColor *)currentTitleShadowColor {
     if (_currentTitleShadowColor != currentTitleShadowColor) {
         _currentTitleShadowColor = currentTitleShadowColor;
         if (_titleLabel) {
             if (_shadowLabel) {
                 _shadowLabel.hidden = false;
-                _shadowLabel.fontColor = currentTitleShadowColor;
+                _shadowLabel.fontColor = currentTitleShadowColor ? currentTitleShadowColor : [SKColor clearColor];
             } else {
                 _shadowLabel = [[SKLabelNode alloc] initWithFontNamed:_currentTitleFont];
-                _shadowLabel.fontColor = currentTitleShadowColor;
+                _shadowLabel.fontColor = currentTitleShadowColor ? currentTitleShadowColor : [SKColor clearColor];
                 _shadowLabel.zPosition = SIButtonLayerTitleShadow;
                 _shadowLabel.text = _titleLabel.text;
                 _shadowLabel.position = CGPointMake(_titleLabel.position.x + _titleShadowOffset.x, _titleLabel.position.y + _titleShadowOffset.y);
@@ -135,88 +139,130 @@
 }
 
 - (void)updateFlagsForState:(SIControlState)state {
-    self.allowHighlightedState = (state & SIControlStateHighlighted) ? true : false;
-    self.allowSelectedState = (state & SIControlStateSelected) ? true : false;
+    if (state & SIControlStateHighlighted) {
+        self.allowHighlightedState = true;
+    }
+    if (state & SIControlStateSelected) {
+        self.allowSelectedState = true;
+    }
 }
 
 - (void)updateButtonDisplayDictionary:(NSString *)dictionary withObject:(id)object forState:(SIControlState)state {
     if (!_buttonDisplayInfoDictionary) {
         _buttonDisplayInfoDictionary = [[NSMutableDictionary alloc] init];
     }
-    
-    NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
+
+    NSMutableDictionary *dict = _buttonDisplayInfoDictionary[dictionary];
+    if (!dict) {
+        dict = [[NSMutableDictionary alloc] init];
+    }
     for (NSUInteger index = 0; index < 4; index++) {
-        SIControlEvent event = 1 << index;
+        SIControlState event = 1 << index;
         if (event & state) {
-            [dict setObject:[NSString stringWithFormat:@"%lu", (unsigned long)event] forKey:object];
+            [dict setObject:object forKey:stringForSIControlState(event)];
         }
     }
     _buttonDisplayInfoDictionary[dictionary] = dict;
 }
 
 - (void)controlStateDidUpdate:(SIControlState)state {
-    _currentTitleFont = [self titleFontForState:state];
-    _currentTitle = [self titleForState:state];
-    _currentTitleColor = [self titleColorForState:state];
-    _currentShadowColor = [self titleShadowColorForState:state];
-    _currentTexture = [self textureForState:state];
-    _currentBackgroundTexture = [self backgroundTextureForState:state];
+    self.currentTitleFont = [self titleFontForState:self.state];
+    self.currentTitle = [self titleForState:self.state];
+    self.currentTitleColor = [self titleColorForState:self.state];
+    self.currentTitleShadowColor = [self titleShadowColorForState:self.state];
+    self.currentTexture = [self textureForState:self.state];
+    self.currentBackgroundTexture = [self backgroundTextureForState:self.state];
     
 }
 
 #pragma mark - state dictionary setters
 
-- (void)setTitle:(NSString *)title forState:(SIControlState)state {
+- (void)setTitle:(nullable NSString *)title forState:(SIControlState)state {
     [self updateFlagsForState:state];
     [self updateButtonDisplayDictionary:@"title" withObject:title forState:state];
+    [self controlStateDidUpdate:state];
 }
 
-- (void)setTitleFont:(NSString *)font forState:(SIControlState)state {
+- (void)setTitleFont:(nullable NSString *)font forState:(SIControlState)state {
     [self updateButtonDisplayDictionary:@"font" withObject:font forState:state];
+    [self controlStateDidUpdate:state];
 }
 
-- (void)setTitleColor:(SKColor *)color forState:(SIControlState)state {
+- (void)setTitleColor:(nullable SKColor *)color forState:(SIControlState)state {
     [self updateButtonDisplayDictionary:@"color" withObject:color forState:state];
+    [self controlStateDidUpdate:state];
 }
 
-- (void)setTitleShadowColor:(SKColor *)color forState:(SIControlState)state {
+- (void)setTitleShadowColor:(nullable SKColor *)color forState:(SIControlState)state {
     [self updateButtonDisplayDictionary:@"shadow" withObject:color forState:state];
+    [self controlStateDidUpdate:state];
 }
 
-- (void)setTexture:(SKTexture *)texture forState:(SIControlState)state {
+- (void)setTexture:(nullable SKTexture *)texture forState:(SIControlState)state {
     [self updateFlagsForState:state];
     [self updateButtonDisplayDictionary:@"texture" withObject:texture forState:state];
+    [self controlStateDidUpdate:state];
 }
 
-- (void)setBackgroundTexture:(SKTexture *)texture forState:(SIControlState)state {
+- (void)setBackgroundTexture:(nullable SKTexture *)texture forState:(SIControlState)state {
     [self updateFlagsForState:state];
     [self updateButtonDisplayDictionary:@"background" withObject:texture forState:state];
+    [self controlStateDidUpdate:state];
+}
+
+#pragma mark - state helper dictionary setters
+
+- (void)setTitle:(nullable NSString *)title withFont:(NSString *)font forState:(SIControlState)state {
+    [self setTitleFont:font forState:state];
+    [self setTitle:title forState:state];
+}
+
+- (void)setTitle:(nullable NSString *)title withFont:(NSString *)font andColor:(nullable SKColor *)color forState:(SIControlState)state {
+    [self setTitleFont:font forState:state];
+    [self setTitle:title forState:state];
+    [self setTitleColor:color forState:state];
+}
+
+- (void)setTitle:(nullable NSString *)title withColor:(nullable SKColor *)color forState:(SIControlState)state {
+    [self setTitle:(NSString *)title forState:state];
+    [self setTitleColor:color forState:state];
+}
+
+- (void)setTitle:(nullable NSString *)title withFont:(NSString *)font andBackgroundTexture:(nullable SKTexture *)texture forState:(SIControlState)state {
+    [self setTitleFont:font forState:state];
+    [self setTitle:title forState:state];
+    [self setBackgroundTexture:texture forState:state];
+}
+
+- (void)setTexture:(nullable SKTexture *)texture withBackgroundTexture:(nullable SKTexture *)background forState:(SIControlState)state {
+    [self setTexture:texture forState:state];
+    [self setBackgroundTexture:background forState:state];
 }
 
 #pragma mark - state dictionary getters
 
-- (NSString *)titleForState:(SIControlState)state {
-    return (NSString *)[[_buttonDisplayInfoDictionary objectForKey:@"title"] objectForKey:[NSString stringWithFormat:@"%lu", (unsigned long)state]];
+- (nullable NSString *)titleForState:(SIControlState)state {
+    return (NSString *)[[_buttonDisplayInfoDictionary objectForKey:@"title"] objectForKey:stringForSIControlState(state)];
 }
 
-- (NSString *)titleFontForState:(SIControlState)state {
-    return (NSString *)[[_buttonDisplayInfoDictionary objectForKey:@"font"] objectForKey:[NSString stringWithFormat:@"%lu", (unsigned long)state]];
+- (nullable NSString *)titleFontForState:(SIControlState)state {
+    return (NSString *)[[_buttonDisplayInfoDictionary objectForKey:@"font"] objectForKey:stringForSIControlState(state)];
 }
 
-- (SKColor *)titleColorForState:(SIControlState)state {
-    return (SKColor *)[[_buttonDisplayInfoDictionary objectForKey:@"color"] objectForKey:[NSString stringWithFormat:@"%lu", (unsigned long)state]];
+- (nullable SKColor *)titleColorForState:(SIControlState)state {
+    return (SKColor *)[[_buttonDisplayInfoDictionary objectForKey:@"color"] objectForKey:stringForSIControlState(state)];
 }
 
-- (SKColor *)titleShadowColorForState:(SIControlState)state {
-    return (SKColor *)[[_buttonDisplayInfoDictionary objectForKey:@"shadow"] objectForKey:[NSString stringWithFormat:@"%lu", (unsigned long)state]];
+- (nullable SKColor *)titleShadowColorForState:(SIControlState)state {
+    return (SKColor *)[[_buttonDisplayInfoDictionary objectForKey:@"shadow"] objectForKey:stringForSIControlState(state)];
 }
 
-- (SKTexture *)textureForState:(SIControlState)state {
-    return (SKTexture *)[[_buttonDisplayInfoDictionary objectForKey:@"texture"] objectForKey:[NSString stringWithFormat:@"%lu", (unsigned long)state]];
+- (nullable SKTexture *)textureForState:(SIControlState)state {
+    return (SKTexture *)[[_buttonDisplayInfoDictionary objectForKey:@"texture"] objectForKey:stringForSIControlState(state)];
 }
 
-- (SKTexture *)backgroundTextureForState:(SIControlState)state {
-    return (SKTexture *)[[_buttonDisplayInfoDictionary objectForKey:@"background"] objectForKey:[NSString stringWithFormat:@"%lu", (unsigned long)state]];
+- (nullable SKTexture *)backgroundTextureForState:(SIControlState)state {
+    return (SKTexture *)[[_buttonDisplayInfoDictionary objectForKey:@"background"] objectForKey:stringForSIControlState(state)];
 }
 
 

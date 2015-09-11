@@ -23,6 +23,15 @@
 
 @implementation SIControl
 
+- (instancetype)init {
+    self = [super init];
+    if (self) {
+        _state = SIControlStateNormal;
+    }
+    
+    return self;
+}
+
 - (void)setEnabled:(BOOL)enabled {
     if (_enabled != enabled) {
         _enabled = enabled;

@@ -30,7 +30,8 @@ typedef NS_OPTIONS(NSUInteger, SIControlState) {
     SIControlStateNormal            = 1 << 0,
     SIControlStateHighlighted       = 1 << 1,
     SIControlStateSelected          = 1 << 2,
-    SIControlStateDisabled          = 1 << 3
+    SIControlStateDisabled          = 1 << 3,
+    SIControlStateAll               = (SIControlStateNormal | SIControlStateHighlighted | SIControlStateSelected | SIControlStateDisabled)
 };
 
 static inline NSString* __nonnull stringForSIControlState(SIControlState state) {

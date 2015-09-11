@@ -16,4 +16,5 @@ FOUNDATION_EXPORT const unsigned char SpriteInterfaceKitVersionString[];
 
 // In this header, you should import all the public headers of your framework using statements like #import <SpriteInterfaceKit/PublicHeader.h>
 
-
+#import <SpriteInterfaceKit/SIControl.h>
+#import <SpriteInterfaceKit/SIButton.h>
