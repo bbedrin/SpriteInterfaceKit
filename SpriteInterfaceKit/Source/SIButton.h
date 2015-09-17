@@ -17,6 +17,7 @@ typedef NS_ENUM(NSInteger, SIButtonLayer) {
     SIButtonLayerTitle
 };
 
+
 @interface SIButton : SIControl
 
 @property (nullable, nonatomic, readonly, copy) NSString *currentTitle;
@@ -33,6 +34,7 @@ typedef NS_ENUM(NSInteger, SIButtonLayer) {
 @property (nonatomic) CGPoint titleShadowOffset;
 @property (nonatomic) CGPoint titleLabelOffset;
 
+
 - (void)setTitle:(nullable NSString *)title forState:(SIControlState)state;
 - (void)setTitleFont:(nullable NSString *)font forState:(SIControlState)state;
 - (void)setTitleColor:(nullable SKColor *)color forState:(SIControlState)state;
@@ -48,10 +50,11 @@ typedef NS_ENUM(NSInteger, SIButtonLayer) {
 
 - (nullable NSString *)titleForState:(SIControlState)state;
 - (nullable NSString *)titleFontForState:(SIControlState)state;
-- (nullable SKColor *)titleColorForState:(SIControlState)state;
+- (SKColor *)titleColorForState:(SIControlState)state;
 - (nullable SKColor *)titleShadowColorForState:(SIControlState)state;
 - (nullable SKTexture *)textureForState:(SIControlState)state;
 - (nullable SKTexture *)backgroundTextureForState:(SIControlState)state;
+
 
 @end
 

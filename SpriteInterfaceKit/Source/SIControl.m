@@ -134,7 +134,11 @@
 
 - (void)sendAction:(SEL)action to:(id)target forSIControlEvent:(SIControlEvent)controlEvent {
     if (target && [target respondsToSelector:action]) {
+#if TARGET_OS_IPHONE
         [[UIApplication sharedApplication] sendAction:action to:target from:self forEvent:nil];
+#elif TARGET_OS_MAC
+        [[NSApplication sharedApplication] sendAction:action to:target from:self];
+#endif
     } else {
         NSLog(@"Cannot send action: %@ to target: %@ for event: %lu! Target does nit contain method named: %@", NSStringFromSelector(action), target, (unsigned long)controlEvent, NSStringFromSelector(action));
     }
@@ -154,6 +158,7 @@
     }
 }
 
+#if TARGET_OS_IPHONE
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
     if ([self hasTouchWithinControl:touches]) {
         if (self.allowHighlightedState) {
@@ -213,6 +218,57 @@
     
     return node == self || [node inParentHierarchy:self];
 }
+#elif TARGET_OS_MAC
+
+- (void)mouseDown:(NSEvent *)theEvent {
+    if ([self hasMouseWithinControl:theEvent]) {
+        if (self.allowHighlightedState) {
+            self.highlighted = true;
+        }
+        self.touchInside = true;
+        [self sendActionsForSIControlEvents:SIControlEventTouchDown];
+    }}
+
+- (void)mouseDragged:(NSEvent *)theEvent {
+    if (![self hasMouseWithinControl:theEvent]) {
+        if (self.touchInside) {
+            [self sendActionsForSIControlEvents:SIControlEventTouchDragExit];
+        }
+        self.touchInside = false;
+        [self sendActionsForSIControlEvents:SIControlEventTouchDragOutside];
+    } else {
+        if (self.touchInside) {
+            [self sendActionsForSIControlEvents:SIControlEventTouchDragEnter];
+        }
+        self.touchInside = true;
+        [self sendActionsForSIControlEvents:SIControlEventTouchDragInside];
+    }
+    if (self.allowHighlightedState && self.highlighted != self.touchInside) {
+        self.highlighted = self.touchInside;
+    }}
+
+- (void)mouseUp:(NSEvent *)theEvent {
+    if (self.allowHighlightedState) {
+        self.highlighted = false;
+    }
+    if (self.allowSelectedState && self.touchInside) {
+        self.selected = !self.selected;
+        [self sendActionsForSIControlEvents:SIControlEventValueChanged];
+    }
+    if (self.touchInside) {
+        [self sendActionsForSIControlEvents:SIControlEventTouchUpInside];
+    } else {
+        [self sendActionsForSIControlEvents:SIControlEventTouchUpOutside];
+    }
+}
+
+- (BOOL)hasMouseWithinControl:(NSEvent *)theEvent {
+    CGPoint point = [theEvent locationInNode:self.scene];
+    SKNode *node = [self.scene nodeAtPoint:point];
+    return node == self || [node inParentHierarchy:self];
+}
+
+#endif
 
 
 @end

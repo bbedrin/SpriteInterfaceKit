@@ -80,11 +80,15 @@
 }
 
 
+- (SKColor *)currentTitleColor {
+    return _currentTitleColor ? _currentTitleColor : [SKColor whiteColor];
+}
+
 - (void)setCurrentTitleColor:(SKColor *)currentTitleColor {
     if (_currentTitleColor != currentTitleColor) {
         _currentTitleColor = currentTitleColor;
         if (_titleLabel) {
-            _titleLabel.fontColor = currentTitleColor ? currentTitleColor : [SKColor clearColor];           
+            _titleLabel.fontColor = currentTitleColor ? currentTitleColor : [SKColor whiteColor];
         }
     }
 }
@@ -172,7 +176,6 @@
     self.currentTitleShadowColor = [self titleShadowColorForState:self.state];
     self.currentTexture = [self textureForState:self.state];
     self.currentBackgroundTexture = [self backgroundTextureForState:self.state];
-    
 }
 
 #pragma mark - state dictionary setters
@@ -249,7 +252,7 @@
     return (NSString *)[[_buttonDisplayInfoDictionary objectForKey:@"font"] objectForKey:stringForSIControlState(state)];
 }
 
-- (nullable SKColor *)titleColorForState:(SIControlState)state {
+- (SKColor *)titleColorForState:(SIControlState)state {
     return (SKColor *)[[_buttonDisplayInfoDictionary objectForKey:@"color"] objectForKey:stringForSIControlState(state)];
 }
 
@@ -264,6 +267,5 @@
 - (nullable SKTexture *)backgroundTextureForState:(SIControlState)state {
     return (SKTexture *)[[_buttonDisplayInfoDictionary objectForKey:@"background"] objectForKey:stringForSIControlState(state)];
 }
-
 
 @end

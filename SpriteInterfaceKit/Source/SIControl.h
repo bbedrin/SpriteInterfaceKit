@@ -10,19 +10,31 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+/** Events triggered when interacting with the control */
 typedef NS_OPTIONS(NSUInteger, SIControlEvent) {
+    /** An event for when the control is pressed down. */
     SIControlEventTouchDown             = 1 << 0,
+    /** Currently not implemented */
     SIControlEventTouchDownRepeat       = 1 << 1,
+    /** An event for when the touch or mouse is dragged while inside the control. */
     SIControlEventTouchDragInside       = 1 << 2,
+    /** An event for when the touch or mouse is dragged while outside the control. */
     SIControlEventTouchDragOutside      = 1 << 3,
+    /** An event at the point when the touch or mouse is dragged back inside the control. Only triggered when the event was previously dragged outside the control during the same touch or mouse event. */
     SIControlEventTouchDragEnter        = 1 << 4,
+    /** An event at the point the touch or mouse event is dragged outside the control. */
     SIControlEventTouchDragExit         = 1 << 5,
+    /** An event for when the control is released inside the control. */
     SIControlEventTouchUpInside         = 1 << 6,
+    /** An event for when the control is release outside the control. */
     SIControlEventTouchUpOutside        = 1 << 7,
+    /** An event for when the control touch or mouse event is interrupted. */
     SIControlEventTouchCancel           = 1 << 8,
     
+    /** An event triggered any time the selected state changes. */
     SIControlEventValueChanged          = 1 << 12,
 
+    /** All touch events */
     SIControlEventAllTouchEvents        = 0x00000FFF
 };
 
