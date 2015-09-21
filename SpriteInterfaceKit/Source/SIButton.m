@@ -67,6 +67,10 @@
     }
 }
 
+- (NSString *)currentTitleFont {
+    return _currentTitleFont ? _currentTitleFont : "Chalkduster";
+}
+
 - (void)setCurrentTitleFont:(NSString *)currentTitleFont {
     if (_currentTitleFont != currentTitleFont) {
         _currentTitleFont = currentTitleFont;
