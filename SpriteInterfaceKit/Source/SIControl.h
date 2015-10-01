@@ -38,6 +38,35 @@ typedef NS_OPTIONS(NSUInteger, SIControlEvent) {
     SIControlEventAllTouchEvents        = 0x00000FFF
 };
 
+static inline NSString* __nonnull stringForSIControlEvent(SIControlEvent event) {
+    switch (event) {
+        case SIControlEventTouchDown:
+            return @"TouchDown";
+        case SIControlEventTouchDownRepeat:
+            return @"TouchDownRepeat";
+        case SIControlEventTouchDragInside:
+            return @"TouchDragInside";
+        case SIControlEventTouchDragOutside:
+            return @"TouchDragOutside";
+        case SIControlEventTouchDragEnter:
+            return @"TouchDragEnter";
+        case SIControlEventTouchDragExit:
+            return @"TouchDragExit";
+        case SIControlEventTouchUpInside:
+            return @"TouchUpInside";
+        case SIControlEventTouchUpOutside:
+            return @"TouchUpOutside";
+        case SIControlEventTouchCancel:
+            return @"TouchCancel";
+        case SIControlEventValueChanged:
+            return @"ValueChanged";
+        case SIControlEventAllTouchEvents:
+            return @"AllTouchEvents";
+        default:
+            return [NSString stringWithFormat:@"Unknown control event: %d", (int)event];
+    }
+}
+
 typedef NS_OPTIONS(NSUInteger, SIControlState) {
     SIControlStateNormal            = 1 << 0,
     SIControlStateHighlighted       = 1 << 1,
@@ -56,6 +85,8 @@ static inline NSString* __nonnull stringForSIControlState(SIControlState state) 
             return @"Selected";
         case SIControlStateDisabled:
             return @"Disabled";
+        case SIControlStateAll:
+            return @"All";
         default:
             return [NSString stringWithFormat:@"Unknown control state: %d", (int)state];
     }
@@ -68,7 +99,11 @@ static inline NSString* __nonnull stringForSIControlState(SIControlState state) 
 @property (nonatomic, getter=isHighlighted) BOOL highlighted;
 @property (nonatomic) BOOL allowSelectedState;
 @property (nonatomic) BOOL allowHighlightedState;
+@property (nonatomic) BOOL allowManualControlOfSelectedState;
 
+@property (nonatomic, strong) id controlGroup;
+
+@property (nonatomic, readonly) NSUInteger uniqueId;
 @property (nonatomic, readonly, getter=isTouchInside) BOOL touchInside;
 @property (nonatomic, readonly) SIControlState state;
 

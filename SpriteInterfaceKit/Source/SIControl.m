@@ -15,7 +15,7 @@
 @property (nonatomic, readwrite) SIControlState state;
 @property (nonatomic) SIControlState previousState;
 
-@property (nonatomic, strong) NSMutableArray *targetActionArray;
+@property (nonatomic, strong) NSMutableDictionary *targetActionDictionary;
 @property (nonatomic, strong) NSMutableSet *targetSet;
 @property (nonatomic) SIControlEvent controlEventActions;
 
@@ -27,12 +27,17 @@
     self = [super init];
     if (self) {
         _state = SIControlStateNormal;
+        _uniqueId = arc4random();
     }
+    
+    NSLog(@"[%@ init]", self);
     
     return self;
 }
 
 - (void)setEnabled:(BOOL)enabled {
+    NSLog(@"[%@ setEnabled: %d]", self, enabled);
+    
     if (_enabled != enabled) {
         _enabled = enabled;
         self.userInteractionEnabled = enabled;
@@ -41,6 +46,8 @@
 }
 
 - (void)setHighlighted:(BOOL)highlighted {
+    NSLog(@"[%@ setHighlighted: %d]", self, highlighted);
+    
     if (_highlighted != highlighted) {
         if (!(self.state & SIControlStateHighlighted)) {
             self.previousState = self.state;
@@ -51,6 +58,8 @@
 }
 
 - (void)setSelected:(BOOL)selected {
+    NSLog(@"[%@ setSelected: %d]", self, selected);
+    
     if (_selected != selected) {
         _selected = selected;
         self.state = selected ? SIControlStateSelected : SIControlStateNormal;
@@ -58,6 +67,8 @@
 }
 
 - (void)setState:(SIControlState)state {
+    NSLog(@"[%@ setState: %@]", self, stringForSIControlState(state));
+    
     if (_state != state) {
         _state = state;
         [self controlStateDidUpdate:state];
@@ -65,26 +76,29 @@
 }
 
 - (void)controlStateDidUpdate:(SIControlState)state {
+    NSLog(@"[%@ controlStateDidUpdate: %@]", self, stringForSIControlState(state));
     // Overriden by subclass
 }
 
 - (void)addTarget:(id)target action:(SEL)action forSIControlEvents:(SIControlEvent)controlEvents {
-    if (!self.targetActionArray) {
-        self.targetActionArray = [[NSMutableArray alloc] init];
+    NSLog(@"[%@ addTarget: %@ action: %@ forSIControlEvents: %@]", self, target, NSStringFromSelector(action), stringForSIControlEvent(controlEvents));
+    
+    if (!self.targetActionDictionary) {
+        self.targetActionDictionary = [[NSMutableDictionary alloc] init];
     }
     
     if (!self.targetSet) {
         self.targetSet = [[NSMutableSet alloc] init];
     }
     
-    for (NSUInteger index = 0; index < 4; index++) {
-        SIControlState event = 1 << index;
+    for (NSUInteger index = 0; index < 8; index++) {
+        SIControlEvent event = 1 << index;
         if (event & controlEvents) {
-            if ([self.targetActionArray count]) {
-                NSMutableArray *array = self.targetActionArray[index];
+            if ([[self.targetActionDictionary allKeys] count]) {
+                NSMutableArray *array = self.targetActionDictionary[stringForSIControlEvent(event)];
                 [array addObject:@[target, NSStringFromSelector(action)]];
             } else {
-                self.targetActionArray[index] = @[@[target, NSStringFromSelector(action)]];
+                self.targetActionDictionary[stringForSIControlEvent(event)] = @[@[target, NSStringFromSelector(action)]];
             }
             if (![self.targetSet containsObject:target]) {
                 [self.targetSet addObject:target];
@@ -92,15 +106,18 @@
             self.controlEventActions = (self.controlEventActions ^ event);
         }
     }
+    
+    NSLog(@"%@", self.targetActionDictionary);
 }
 
 - (void)removeTarget:(id)target action:(SEL)action forSIControlEvents:(SIControlEvent)controlEvents {
+    NSLog(@"[%@ removeTarget: %@ action: %@ forSIControlEvents: %@]", self, target, NSStringFromSelector(action), stringForSIControlEvent(controlEvents));
     
-    if ([self.targetActionArray count]) {
-        for (NSUInteger index = 0; index < 4; index++) {
+    if ([[self.targetActionDictionary allKeys] count]) {
+        for (NSUInteger index = 0; index < 8; index++) {
             SIControlEvent event = 1 << index;
             if (event & controlEvents) {
-                NSMutableArray *array = self.targetActionArray[index];
+                NSMutableArray *array = self.targetActionDictionary[stringForSIControlEvent(event)];
                 for (NSArray *subArray in array) {
                     id currentTarget = subArray[0];
                     SEL selectorString = NSSelectorFromString(subArray[1]);
@@ -133,6 +150,8 @@
 }
 
 - (void)sendAction:(SEL)action to:(id)target forSIControlEvent:(SIControlEvent)controlEvent {
+    NSLog(@"[%@ sendAction: %@ to: %@ forSIControlEvent: %@]", self, NSStringFromSelector(action), target, stringForSIControlEvent(controlEvent));
+    
     if (target && [target respondsToSelector:action]) {
 #if TARGET_OS_IPHONE
         [[UIApplication sharedApplication] sendAction:action to:target from:self forEvent:nil];
@@ -140,15 +159,17 @@
         [[NSApplication sharedApplication] sendAction:action to:target from:self];
 #endif
     } else {
-        NSLog(@"Cannot send action: %@ to target: %@ for event: %lu! Target does nit contain method named: %@", NSStringFromSelector(action), target, (unsigned long)controlEvent, NSStringFromSelector(action));
+        NSLog(@"Cannot send action: %@ to target: %@ for event: %@! Target does nit contain method named: %@", NSStringFromSelector(action), target, stringForSIControlEvent(controlEvent), NSStringFromSelector(action));
     }
 }
 
 - (void)sendActionsForSIControlEvents:(SIControlEvent)controlEvents {
-    for (NSUInteger index = 0; index < 4; index++) {
+    NSLog(@"[%@ sendActionsForSIControlEvents: %@]", self, stringForSIControlEvent(controlEvents));
+    
+    for (NSUInteger index = 0; index < 8; index++) {
         SIControlEvent event = 1 << index;
         if (event & controlEvents) {
-            NSMutableArray *array = self.targetActionArray[index];
+            NSMutableArray *array = self.targetActionDictionary[stringForSIControlEvent(controlEvents)];
             for (NSArray *subArray in array) {
                 id currentTarget = subArray[0];
                 SEL selectorString = NSSelectorFromString(subArray[1]);
@@ -192,7 +213,7 @@
     if (self.allowHighlightedState) {
         self.highlighted = false;
     }
-    if (self.allowSelectedState && self.touchInside) {
+    if (self.allowSelectedState && self.touchInside && !self.allowManualControlOfSelectedState) {
         self.selected = !self.selected;
         [self sendActionsForSIControlEvents:SIControlEventValueChanged];
     }
@@ -218,8 +239,8 @@
     
     return node == self || [node inParentHierarchy:self];
 }
-#elif TARGET_OS_MAC
 
+#elif TARGET_OS_MAC
 - (void)mouseDown:(NSEvent *)theEvent {
     if ([self hasMouseWithinControl:theEvent]) {
         if (self.allowHighlightedState) {
@@ -251,7 +272,7 @@
     if (self.allowHighlightedState) {
         self.highlighted = false;
     }
-    if (self.allowSelectedState && self.touchInside) {
+    if (self.allowSelectedState && self.touchInside && !self.allowManualControlOfSelectedState) {
         self.selected = !self.selected;
         [self sendActionsForSIControlEvents:SIControlEventValueChanged];
     }
@@ -270,6 +291,10 @@
 
 #endif
 
+- (NSString *)description {
+    return [NSString stringWithFormat:@"%@ (id: %lu)", self.class, self.uniqueId];
+}
 
 @end
+
 
